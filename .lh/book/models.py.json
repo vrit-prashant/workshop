@@ -1,0 +1,42 @@
+{
+    "sourceFile": "book/models.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1733361020649,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1733361034391,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n from django.db import models\n \n class Book(models.Model):\n     title = models.CharField(max_length=255)\n-    author = models.ForeignKey('Author', on_delete=models.CASCADE)\n+    author = models.CharField(max_length=255)\n     genre = models.ForeignKey('Genre', on_delete=models.SET_NULL, null=True)\n     publication_year = models.PositiveIntegerField()\n     isbn = models.CharField(max_length=13, unique=True)\n     description = models.TextField()\n"
+                },
+                {
+                    "date": 1733361044869,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \n class Book(models.Model):\n     title = models.CharField(max_length=255)\n     author = models.CharField(max_length=255)\n-    genre = models.ForeignKey('Genre', on_delete=models.SET_NULL, null=True)\n+    genre = models.CharField(max_length=255)\n     publication_year = models.PositiveIntegerField()\n     isbn = models.CharField(max_length=13, unique=True)\n     description = models.TextField()\n     language = models.CharField(max_length=50)\n"
+                },
+                {
+                    "date": 1733361066076,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,8 @@\n     genre = models.CharField(max_length=255)\n     publication_year = models.PositiveIntegerField()\n     isbn = models.CharField(max_length=13, unique=True)\n     description = models.TextField()\n-    language = models.CharField(max_length=50)\n-    page_count = models.PositiveIntegerField()\n     cover_image_url = models.URLField(null=True, blank=True)\n \n     def __str__(self):\n         return self.title\n"
+                },
+                {
+                    "date": 1733362933086,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,5 +12,6 @@\n     description = models.TextField()\n     cover_image_url = models.URLField(null=True, blank=True)\n \n     def __str__(self):\n+        \n         return self.title\n"
+                },
+                {
+                    "date": 1733362943200,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     genre = models.CharField(max_length=255)\n     publication_year = models.PositiveIntegerField()\n     isbn = models.CharField(max_length=13, unique=True)\n     description = models.TextField()\n-    cover_image_url = models.URLField(null=True, blank=True)\n+    cover_image_url = models.ImageField\n \n     def __str__(self):\n         \n         return self.title\n"
+                },
+                {
+                    "date": 1733362989798,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     genre = models.CharField(max_length=255)\n     publication_year = models.PositiveIntegerField()\n     isbn = models.CharField(max_length=13, unique=True)\n     description = models.TextField()\n-    cover_image_url = models.ImageField\n+    cover_image = models.ImageField(upload_to='book_covers/', blank=True, null=True)\n \n     def __str__(self):\n         \n         return self.title\n"
+                }
+            ],
+            "date": 1733361020649,
+            "name": "Commit-0",
+            "content": "from django.db import models\n\n# Create your models here.\nfrom django.db import models\n\nclass Book(models.Model):\n    title = models.CharField(max_length=255)\n    author = models.ForeignKey('Author', on_delete=models.CASCADE)\n    genre = models.ForeignKey('Genre', on_delete=models.SET_NULL, null=True)\n    publication_year = models.PositiveIntegerField()\n    isbn = models.CharField(max_length=13, unique=True)\n    description = models.TextField()\n    language = models.CharField(max_length=50)\n    page_count = models.PositiveIntegerField()\n    cover_image_url = models.URLField(null=True, blank=True)\n\n    def __str__(self):\n        return self.title\n"
+        }
+    ]
+}
